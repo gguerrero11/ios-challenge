@@ -52,13 +52,22 @@
                                     <segue destination="7kc-Tk-3um" kind="show" id="IdL-bo-3Zj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2q8-QW-AKe">
+                                <rect key="frame" x="114" y="762" width="188" height="30"/>
+                                <state key="normal" title="View Image View Controller"/>
+                                <connections>
+                                    <segue destination="80e-At-eoX" kind="presentation" id="Cdb-Ye-hG5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CKf-V8-AhH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="0hW-L7-Bto"/>
+                            <constraint firstItem="bHV-bO-DOc" firstAttribute="top" secondItem="2q8-QW-AKe" secondAttribute="bottom" constant="30" id="0iP-pQ-mwF"/>
                             <constraint firstItem="CKf-V8-AhH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="GoM-cK-Zda"/>
                             <constraint firstItem="CKf-V8-AhH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="X5J-b9-ft4"/>
                             <constraint firstItem="CKf-V8-AhH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gGu-vz-tO3"/>
+                            <constraint firstItem="2q8-QW-AKe" firstAttribute="leading" secondItem="bHV-bO-DOc" secondAttribute="trailing" constant="-164.5" id="met-rA-v2d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bHV-bO-DOc" secondAttribute="bottom" constant="10" id="u6z-l6-nMo"/>
                             <constraint firstItem="bHV-bO-DOc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vIV-NQ-ysQ"/>
                         </constraints>
@@ -107,6 +116,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5r-qU-CMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="31"/>
+        </scene>
+        <!--Image Downloader View Controller-->
+        <scene sceneID="FRe-YE-bUd">
+            <objects>
+                <viewController id="80e-At-eoX" customClass="ImageDownloaderViewController" customModule="ios_challenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FXk-kS-Quy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2B-Wy-5hS">
+                                <rect key="frame" x="187.5" y="832" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="CloseModalAction:" destination="80e-At-eoX" eventType="touchUpInside" id="nab-Xw-FCD"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="v66-mI-dPJ">
+                                <rect key="frame" x="40" y="116" width="335" height="336"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x2B-Wy-5hS" firstAttribute="centerX" secondItem="T0t-sM-Rwh" secondAttribute="centerX" id="BfP-Tr-QTL"/>
+                            <constraint firstItem="T0t-sM-Rwh" firstAttribute="bottom" secondItem="v66-mI-dPJ" secondAttribute="bottom" constant="410" id="eAd-6t-G6Z"/>
+                            <constraint firstItem="v66-mI-dPJ" firstAttribute="top" secondItem="T0t-sM-Rwh" secondAttribute="top" constant="72" id="lLY-kC-GFl"/>
+                            <constraint firstItem="T0t-sM-Rwh" firstAttribute="bottom" secondItem="x2B-Wy-5hS" secondAttribute="bottom" id="pon-CU-46Z"/>
+                            <constraint firstItem="T0t-sM-Rwh" firstAttribute="trailing" secondItem="v66-mI-dPJ" secondAttribute="trailing" constant="39" id="tWE-yG-C1u"/>
+                            <constraint firstItem="v66-mI-dPJ" firstAttribute="leading" secondItem="T0t-sM-Rwh" secondAttribute="leading" constant="40" id="xFD-7J-PvS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T0t-sM-Rwh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efr-Nf-kQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1573.913043478261" y="778.79464285714278"/>
         </scene>
     </scenes>
 </document>
