@@ -13,25 +13,23 @@ class NumberedListTableViewController: UITableViewController {
     private var listOfNumbers: [Int] = []
     
     private let serialQueue = DispatchQueue(label: "AsynchronousListGenerator",
-                                    qos: .unspecified,
+                                    qos: .userInitiated,
                                     attributes: .concurrent)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5.0) {
             
-            for number in 1...100 {
-                self.serialQueue.async {
+            self.serialQueue.async {
+                for number in 1...100 {
                     self.listOfNumbers.append(number)
+                }
+                DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
-            
-            self.tableView.reloadData()
         }
-        
-        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
