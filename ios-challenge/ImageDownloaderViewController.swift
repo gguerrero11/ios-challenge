@@ -10,6 +10,8 @@ import UIKit
 
 class ImageDownloaderViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBAction func CloseModalAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
@@ -17,18 +19,25 @@ class ImageDownloaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let imageStringURL = "https://cdn.shopify.com/s/files/1/1004/3036/files/Homepage_Product_Images_sock_f724561e-61db-4899-92ba-dc43b27d9445_x587.jpg?v=1553278733"
+        if let imageURL = URL(string: imageStringURL)
+        {
+            imageView.load(url: imageURL)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}
+
